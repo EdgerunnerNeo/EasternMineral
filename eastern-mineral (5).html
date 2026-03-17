@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eastern Mineral — Critical Metals Trading</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--gd:#0a1a10;--gdk:#0f2316;--gm:#183520;--ga:#2a6038;--gl:#388a4e;--gb:#4aad65;--sl:#dde8e1;--sd:#8aa094;--go:#c4a96a;--tb:#b8cbbf;--tm:#607060;--bd:rgba(180,200,188,0.11);--bdm:rgba(180,200,188,0.18);--wh:#fafcfb;--ink:#111a14}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'IBM Plex Sans',sans-serif;background:var(--gd);color:var(--tb);overflow-x:hidden;line-height:1.65}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 56px;background:rgba(10,26,16,0.95);backdrop-filter:blur(18px);border-bottom:1px solid var(--bd);transition:background .4s}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0}
+.logo-mark{width:32px;height:32px}
+.logo-mark svg{width:100%;height:100%}
+.logo-text{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:500;color:var(--sl);letter-spacing:.03em;line-height:1.1}
+.logo-sub{font-family:'IBM Plex Mono',monospace;font-size:.52rem;color:var(--sd);letter-spacing:.22em;text-transform:uppercase;display:block;margin-top:3px}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--sd);text-decoration:none;transition:color .2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gb);transition:width .3s}
+.nav-links a:hover{color:var(--sl)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{font-family:'IBM Plex Mono',monospace;font-size:.66rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink)!important;background:var(--sl);padding:8px 20px;border-radius:1px;text-decoration:none;transition:background .2s}
+.nav-cta::after{display:none!important}
+.nav-cta:hover{background:var(--wh)!important}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;width:32px;height:32px;cursor:pointer;background:none;border:none;padding:5px;flex-shrink:0}
+.nav-hamburger span{display:block;width:100%;height:1.5px;background:var(--sl);transition:transform .3s,opacity .3s;transform-origin:center}
+.nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.nav-drawer{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(8,20,12,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd);z-index:199;max-height:0;overflow:hidden;transition:max-height .4s ease}
+.nav-drawer.open{max-height:400px}
+.nav-drawer ul{list-style:none;padding:12px 0 0}
+.nav-drawer ul li a{display:block;padding:14px 24px;font-size:.85rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--sd);text-decoration:none;border-bottom:1px solid var(--bd);transition:color .2s,background .2s}
+.nav-drawer ul li a:hover{color:var(--sl);background:rgba(56,138,78,.07)}
+.drawer-cta{display:block;margin:18px 24px 24px;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:var(--sl);padding:13px;text-decoration:none;border-radius:1px}
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 56px 88px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 65% 35%,rgba(42,96,56,.2) 0%,transparent 65%),radial-gradient(ellipse 45% 40% at 15% 75%,rgba(24,53,32,.3) 0%,transparent 60%),linear-gradient(165deg,#0a1a10 0%,#080f0a 55%,#060d08 100%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(180,200,188,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(180,200,188,.04) 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.5) 25%,rgba(0,0,0,.5) 75%,transparent 100%)}
+.hero-content{position:relative;z-index:2;max-width:820px}
+.hero-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gb);margin-bottom:24px;display:flex;align-items:center;gap:14px}
+.hero-eyebrow::before{content:'';display:block;width:36px;height:1px;background:var(--gb);flex-shrink:0}
+.hero-headline{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,5.5vw,5rem);font-weight:500;color:var(--sl);line-height:1.06;letter-spacing:-.015em;margin-bottom:26px}
+.hero-headline em{font-style:italic;color:var(--gb)}
+.hero-tagline{font-size:1rem;font-weight:300;color:var(--tb);max-width:500px;line-height:1.75;margin-bottom:44px}
+.hero-actions{display:flex;align-items:center;gap:24px}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:var(--sl);padding:13px 28px;border-radius:1px;text-decoration:none;transition:background .2s,transform .2s}
+.btn-primary:hover{background:var(--wh);transform:translateY(-1px)}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--sd);text-decoration:none;transition:color .2s}
+.btn-secondary:hover{color:var(--sl)}
+.arr{display:inline-block;transition:transform .2s}
+.btn-primary:hover .arr,.btn-secondary:hover .arr{transform:translateX(4px)}
+.hero-stats{position:absolute;bottom:88px;right:56px;z-index:2;display:flex;flex-direction:column;border:1px solid var(--bdm);background:rgba(15,35,22,.55);backdrop-filter:blur(12px)}
+.hero-stat{padding:20px 28px;border-bottom:1px solid var(--bd)}
+.hero-stat:last-child{border-bottom:none}
+.hero-stat-val{font-family:'Playfair Display',serif;font-size:1.85rem;font-weight:500;color:var(--sl);line-height:1;margin-bottom:5px}
+.hero-stat-lbl{font-family:'IBM Plex Mono',monospace;font-size:.54rem;letter-spacing:.18em;text-transform:uppercase;color:var(--tm)}
+.scroll-hint{position:absolute;bottom:26px;left:56px;z-index:2;display:flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:var(--tm)}
+.scroll-line{width:36px;height:1px;background:var(--tm);position:relative;overflow:hidden}
+.scroll-line::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--gb);animation:sline 2s ease-in-out infinite}
+@keyframes sline{0%{left:-100%}100%{left:100%}}
+.marquee-bar{padding:0;background:var(--gm);border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05);overflow:hidden;height:48px;display:flex;align-items:center}
+.mq-track{display:flex;animation:mq 32s linear infinite;white-space:nowrap}
+.mq-track.rev{animation-direction:reverse}
+@keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.mq-item{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(200,212,204,.45);padding:0 32px;display:flex;align-items:center;gap:32px}
+.mq-item::after{content:'◆';font-size:.38rem;color:var(--gb)}
+section{padding:108px 56px}
+.sec-label{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gb);margin-bottom:18px;display:flex;align-items:center;gap:14px}
+.sec-label::before{content:'';display:block;width:30px;height:1px;background:var(--gb)}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.2vw,2.9rem);font-weight:500;color:var(--sl);line-height:1.15;margin-bottom:22px}
+.sec-body{font-size:.95rem;font-weight:300;color:var(--tb);line-height:1.8;max-width:580px}
+.divider{border:none;border-top:1px solid var(--bd);margin:0 56px}
+#about{background:var(--gdk);display:grid;grid-template-columns:1fr 1fr;gap:88px;align-items:center}
+.about-graph-wrap{position:relative;height:480px;border:1px solid var(--bd);background:rgba(10,26,16,.5);overflow:hidden}
+.about-graph-wrap canvas{position:absolute;inset:0}
+.about-badge{position:absolute;bottom:-16px;right:-16px;background:var(--gm);border:1px solid var(--bd);padding:18px 22px;font-family:'IBM Plex Mono',monospace;z-index:2}
+.ab-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:500;color:var(--sl);line-height:1}
+.ab-lbl{font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--tm);margin-top:4px}
+.pillars{margin-top:44px;border:1px solid var(--bd)}
+.pillar{padding:20px 24px;border-bottom:1px solid var(--bd);display:flex;align-items:flex-start;gap:16px;transition:background .2s}
+.pillar:last-child{border-bottom:none}
+.pillar:hover{background:rgba(42,96,56,.07)}
+.pillar-icon{width:28px;height:28px;flex-shrink:0;color:var(--gl);margin-top:2px}
+.pillar-title{font-size:.85rem;font-weight:600;color:var(--sl);margin-bottom:3px;letter-spacing:.02em}
+.pillar-body{font-size:.78rem;font-weight:300;color:var(--tm);line-height:1.6}
+.offices-row{margin-top:28px;display:flex;gap:0;border:1px solid var(--bd)}
+.office-item{flex:1;padding:16px 18px;border-right:1px solid var(--bd);text-align:center}
+.office-item:last-child{border-right:none}
+.office-flag{font-size:1.2rem;display:block;margin-bottom:5px}
+.office-city{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--sl);display:block}
+.office-role{font-size:.7rem;color:var(--tm);margin-top:2px}
+#metals{background:var(--gd)}
+.metals-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px}
+.metals-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bd);border:1px solid var(--bd)}
+.metals-grid-bottom{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bd);border:1px solid var(--bd);border-top:none}
+.metal-card{background:var(--gd);padding:36px 28px;position:relative;overflow:hidden;transition:background .3s;cursor:default}
+.metal-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--ga),var(--gb));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.metal-card:hover{background:var(--gdk)}
+.metal-card:hover::before{transform:scaleX(1)}
+.m-sym{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--tm);margin-bottom:14px}
+.m-name{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:500;color:var(--sl);line-height:1.2;margin-bottom:16px}
+.m-desc{font-size:.8rem;font-weight:300;color:var(--tm);line-height:1.7;margin-bottom:24px}
+.m-tags{display:flex;flex-wrap:wrap;gap:6px}
+.m-tag{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gb);background:rgba(74,173,101,.1);border:1px solid rgba(74,173,101,.25);padding:4px 9px}
+.m-bg{position:absolute;bottom:-8px;right:14px;font-family:'Playfair Display',serif;font-size:6.5rem;font-weight:700;color:rgba(42,96,56,.07);line-height:1;pointer-events:none;user-select:none}
+.supply-banner{margin-top:44px;background:var(--gdk);border:1px solid var(--bd);border-left:2px solid var(--gb);padding:24px 28px;display:flex;align-items:flex-start;gap:18px}
+.supply-icon{width:32px;height:32px;flex-shrink:0;color:var(--gb);margin-top:2px}
+.supply-title{font-size:.88rem;font-weight:600;color:var(--sl);margin-bottom:5px}
+.supply-body{font-size:.82rem;font-weight:300;color:var(--tm);line-height:1.65}
+#process{background:var(--gdk)}
+.process-header{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:end;margin-bottom:72px}
+.process-layout{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.process-timeline{position:relative}
+.process-timeline::before{content:'';position:absolute;left:24px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--ga),transparent)}
+.process-step{display:grid;grid-template-columns:48px 1fr;gap:22px;padding-bottom:44px;position:relative}
+.process-step:last-child{padding-bottom:0}
+.step-num{width:48px;height:48px;border:1px solid var(--bd);background:var(--gd);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:.64rem;font-weight:500;color:var(--gb);letter-spacing:.08em;flex-shrink:0;position:relative;z-index:1;transition:background .3s}
+.process-step:hover .step-num{background:var(--gm)}
+.step-content{padding-top:10px}
+.step-title{font-size:.9rem;font-weight:600;color:var(--sl);margin-bottom:7px}
+.step-body{font-size:.8rem;font-weight:300;color:var(--tm);line-height:1.7}
+.markets-box{border:1px solid var(--bd);padding:32px}
+.markets-title{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--tm);margin-bottom:28px}
+.market-item{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(180,200,188,.07)}
+.market-item:last-of-type{border-bottom:none}
+.mflag{font-size:1.3rem;margin-right:12px}
+.mname{font-size:.88rem;font-weight:500;color:var(--sl)}
+.mdetail{font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--tm)}
+.mstatus{display:flex;align-items:center;gap:5px;font-family:'IBM Plex Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gb)}
+.mdot{width:6px;height:6px;border-radius:50%;background:var(--gb);animation:pulse 2s ease-in-out infinite}
+.mdot.dev{background:var(--go);animation:none}
+.mstatus.dev-s{color:var(--go)}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.compliance-box{margin-top:28px;padding:18px 20px;border:1px solid var(--bd);background:rgba(10,26,16,.5)}
+.comp-row{font-size:.76rem;color:var(--sd);display:flex;align-items:center;gap:8px;padding:4px 0}
+.comp-check{color:var(--gb)}
+#contact{background:var(--gd);display:grid;grid-template-columns:1fr 1fr;gap:88px;align-items:start}
+.contact-detail{margin-top:44px}
+.citem{padding:18px 0;border-bottom:1px solid var(--bd)}
+.citem:first-child{border-top:1px solid var(--bd)}
+.clbl{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--tm);margin-bottom:3px}
+.cval{font-size:.92rem;color:var(--sl)}
+.contact-form{background:var(--gdk);border:1px solid var(--bd);padding:44px}
+.form-title{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:500;color:var(--sl);margin-bottom:32px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-group{display:flex;flex-direction:column;gap:7px;margin-bottom:14px}
+.form-lbl{font-family:'IBM Plex Mono',monospace;font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--tm)}
+.form-input,.form-select,.form-textarea{background:rgba(10,26,16,.8);border:1px solid var(--bd);color:var(--sl);padding:12px 14px;font-family:'IBM Plex Sans',sans-serif;font-size:.85rem;font-weight:300;outline:none;transition:border-color .2s;width:100%;border-radius:0;-webkit-appearance:none}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--tm)}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--gl)}
+.form-textarea{resize:vertical;min-height:110px}
+.form-submit{display:flex;align-items:center;justify-content:space-between;margin-top:24px;padding-top:24px;border-top:1px solid var(--bd)}
+.form-note{font-size:.72rem;color:var(--tm);max-width:180px;line-height:1.5}
+.btn-submit{font-family:'IBM Plex Mono',monospace;font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:var(--sl);border:none;padding:13px 26px;cursor:pointer;transition:background .2s;display:flex;align-items:center;gap:8px}
+.btn-submit:hover{background:var(--wh)}
+footer{background:var(--gdk);border-top:1px solid var(--bd);padding:56px 56px 36px}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:52px;padding-bottom:44px;border-bottom:1px solid var(--bd);margin-bottom:28px}
+.footer-brand p{font-size:.82rem;font-weight:300;color:var(--tm);line-height:1.7;margin-top:18px;max-width:260px}
+.fcol-title{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--tm);margin-bottom:18px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:9px}
+.footer-links a{font-size:.82rem;color:var(--sd);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--sl)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center}
+.footer-copy{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.1em;color:var(--tm)}
+.footer-legal{display:flex;gap:24px}
+.footer-legal a{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.08em;color:var(--tm);text-decoration:none;transition:color .2s}
+.footer-legal a:hover{color:var(--sd)}
+.fi{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.fi.vis{opacity:1;transform:translateY(0)}
+@media(max-width:1024px){
+  nav{padding:0 32px}
+  section{padding:88px 32px}
+  .divider{margin:0 32px}
+  footer{padding:48px 32px 32px}
+  #hero{padding:0 32px 80px}
+  .hero-stats{right:32px;bottom:72px}
+  .scroll-hint{left:32px}
+  #about{grid-template-columns:1fr;gap:44px}
+  .about-graph-wrap{height:340px}
+  .metals-grid{grid-template-columns:repeat(2,1fr)}
+  .metals-grid-bottom{grid-template-columns:repeat(2,1fr)}
+  .metals-header{flex-direction:column;align-items:flex-start;gap:14px;margin-bottom:36px}
+  .process-header{grid-template-columns:1fr;gap:14px;margin-bottom:48px}
+  .process-layout{grid-template-columns:1fr;gap:48px}
+  #contact{grid-template-columns:1fr;gap:44px}
+  .contact-form{padding:32px}
+  .footer-top{grid-template-columns:1fr 1fr;gap:36px}
+}
+@media(max-width:767px){
+  nav{padding:0 18px;height:60px}
+  .nav-links{display:none}
+  .nav-hamburger{display:flex}
+  .nav-drawer{display:block;top:60px}
+  .logo-sub{display:none}
+  section{padding:64px 18px}
+  .divider{margin:0 18px}
+  footer{padding:44px 18px 28px}
+  #hero{padding:0 18px 64px;min-height:100svh}
+  .hero-eyebrow{font-size:.56rem;margin-bottom:16px}
+  .hero-headline{font-size:clamp(2rem,9vw,2.8rem);margin-bottom:16px}
+  .hero-tagline{font-size:.88rem;margin-bottom:30px}
+  .hero-actions{flex-direction:column;align-items:flex-start;gap:14px}
+  .btn-primary{width:100%;justify-content:center}
+  .hero-stats{position:static;flex-direction:row;margin-top:40px;width:100%}
+  .hero-stat{flex:1;padding:14px 8px;border-bottom:none;border-right:1px solid var(--bd);text-align:center}
+  .hero-stat:last-child{border-right:none}
+  .hero-stat-val{font-size:1.3rem}
+  .hero-stat-lbl{font-size:.44rem}
+  .scroll-hint{display:none}
+  #about{grid-template-columns:1fr;gap:30px;padding:64px 18px}
+  .about-graph-wrap{height:230px}
+  .about-badge{bottom:-10px;right:-10px;padding:12px 16px}
+  .ab-num{font-size:1.5rem}
+  .pillars{margin-top:22px}
+  .pillar{padding:14px 16px;gap:12px}
+  .offices-row{flex-wrap:wrap}
+  .office-item{flex:1 1 calc(33% - 1px);min-width:80px}
+  .metals-header{flex-direction:column;align-items:flex-start;gap:12px;margin-bottom:24px}
+  .metals-grid{grid-template-columns:1fr}
+  .metals-grid-bottom{grid-template-columns:1fr}
+  .metal-card{padding:26px 20px}
+  .supply-banner{flex-direction:column;gap:12px;padding:18px 16px}
+  .process-header{grid-template-columns:1fr;gap:12px;margin-bottom:36px}
+  .process-layout{grid-template-columns:1fr;gap:36px}
+  .process-timeline::before{left:20px}
+  .process-step{grid-template-columns:42px 1fr;gap:14px;padding-bottom:30px}
+  .step-num{width:42px;height:42px;font-size:.58rem}
+  .markets-box{padding:20px 16px}
+  #contact{grid-template-columns:1fr;gap:32px;padding:64px 18px}
+  .contact-form{padding:20px 16px}
+  .form-row{grid-template-columns:1fr}
+  .form-submit{flex-direction:column;align-items:stretch;gap:16px}
+  .form-note{max-width:100%}
+  .btn-submit{justify-content:center}
+  .footer-top{grid-template-columns:1fr;gap:28px}
+  .footer-bottom{flex-direction:column;align-items:flex-start;gap:10px}
+  .footer-legal{flex-wrap:wrap;gap:14px}
+  .mq-item{font-size:.54rem;padding:0 18px;gap:18px}
+}
+@media(max-width:380px){
+  .hero-headline{font-size:1.85rem}
+  .hero-stats{flex-direction:column}
+  .hero-stat{flex:unset;width:100%;border-right:none;border-bottom:1px solid var(--bd);text-align:left}
+  .hero-stat:last-child{border-bottom:none}
+}
+</style>
+</head>
+<body>
+
+<nav id="main-nav">
+  <a href="#hero" class="nav-logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="16,1.5 30,8.5 30,23.5 16,30.5 2,23.5 2,8.5" fill="none" stroke="#4aad65" stroke-width="1.1"/>
+        <polygon points="16,7 24.5,11.5 24.5,20.5 16,25 7.5,20.5 7.5,11.5" fill="none" stroke="rgba(196,208,200,.2)" stroke-width=".7"/>
+        <circle cx="16" cy="16" r="2.5" fill="#4aad65"/>
+      </svg>
+    </div>
+    <div>
+      <div class="logo-text">Eastern Mineral</div>
+      <span class="logo-sub">Critical Metals Trading</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#metals">Metals</a></li>
+    <li><a href="#process">Trading</a></li>
+    <li><a href="#contact" class="nav-cta">Contact Us →</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-drawer" id="nav-drawer">
+  <ul>
+    <li><a href="#about" class="drawer-link">About</a></li>
+    <li><a href="#metals" class="drawer-link">Metals</a></li>
+    <li><a href="#process" class="drawer-link">Trading Process</a></li>
+  </ul>
+  <a href="#contact" class="drawer-cta drawer-link">Contact Us →</a>
+</div>
+
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Critical Metals · Mine-to-Market · Global Trade</div>
+    <h1 class="hero-headline">Where <em>Critical Metals</em><br>Meet Global Demand</h1>
+    <p class="hero-tagline">Eastern Mineral controls its own mines and bridges the world's most essential raw materials with the manufacturers, industries, and governments that depend on them — with consistent supply, precision, and deep market intelligence.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Contact Us <span class="arr">→</span></a>
+      <a href="#metals" class="btn-secondary">Explore Our Metals <span class="arr">→</span></a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="hero-stat-val">6+</div><div class="hero-stat-lbl">Metal Categories</div></div>
+    <div class="hero-stat"><div class="hero-stat-val">3</div><div class="hero-stat-lbl">Global Offices</div></div>
+    <div class="hero-stat"><div class="hero-stat-val">Mine</div><div class="hero-stat-lbl">to Market</div></div>
+  </div>
+  <div class="scroll-hint"><div class="scroll-line"></div>Scroll to Explore</div>
+</section>
+
+<div class="marquee-bar">
+  <div class="mq-track">
+    <div class="mq-item">Rare Earth Elements</div>
+    <div class="mq-item">Lithium Compounds</div>
+    <div class="mq-item">Battery-Grade Cobalt</div>
+    <div class="mq-item">High-Purity Nickel</div>
+    <div class="mq-item">Copper Cathode</div>
+    <div class="mq-item">Antimony</div>
+    <div class="mq-item">Tungsten</div>
+    <div class="mq-item">Manganese Ore</div>
+    <div class="mq-item">Rare Earth Elements</div>
+    <div class="mq-item">Lithium Compounds</div>
+    <div class="mq-item">Battery-Grade Cobalt</div>
+    <div class="mq-item">High-Purity Nickel</div>
+    <div class="mq-item">Copper Cathode</div>
+    <div class="mq-item">Antimony</div>
+    <div class="mq-item">Tungsten</div>
+    <div class="mq-item">Manganese Ore</div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="about-graph-wrap fi">
+    <canvas id="tradeCanvas"></canvas>
+    <div class="about-badge">
+      <div class="ab-num">Cambodia</div>
+      <div class="ab-lbl">Origin &amp; Operations Hub</div>
+    </div>
+  </div>
+  <div class="fi">
+    <div class="sec-label">About Eastern Mineral</div>
+    <h2 class="sec-title">Mine-to-Market.<br>Built for Consistency.</h2>
+    <p class="sec-body">Eastern Mineral is a vertically integrated critical metals company. By controlling our own mining operations in Cambodia, we deliver supply certainty that commodity traders cannot — from extraction through export to final delivery across Asia-Pacific, the Middle East, and beyond.</p>
+    <p class="sec-body" style="margin-top:18px">With offices in Cambodia, Malaysia, and Dubai, we combine on-the-ground operational depth with institutional-grade trading capabilities, serving procurement teams and industrial buyers who require reliable, compliant, long-term supply.</p>
+    <div class="pillars">
+      <div class="pillar">
+        <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <div><div class="pillar-title">Mine-Owned Supply</div><div class="pillar-body">We operate our own mines in Cambodia, giving buyers direct access to consistent, traceable supply — eliminating third-party sourcing risk.</div></div>
+      </div>
+      <div class="pillar">
+        <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 3a6 6 0 0 1 6 9"/><circle cx="12" cy="12" r="2"/></svg>
+        <div><div class="pillar-title">Global Reach</div><div class="pillar-body">Active trade corridors across Asia-Pacific, the Middle East, and Europe with offices in Cambodia, Malaysia, and Dubai.</div></div>
+      </div>
+      <div class="pillar">
+        <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4"/><rect x="3" y="4" width="18" height="16" rx="2"/></svg>
+        <div><div class="pillar-title">Compliance-First</div><div class="pillar-body">Full AML/KYC onboarding, chain-of-custody documentation, and trade finance structures meeting international regulatory standards.</div></div>
+      </div>
+    </div>
+    <div class="offices-row">
+      <div class="office-item">
+        <span class="office-flag">🇰🇭</span>
+        <span class="office-city">Cambodia</span>
+        <div class="office-role">Mining &amp; Operations</div>
+      </div>
+      <div class="office-item">
+        <span class="office-flag">🇲🇾</span>
+        <span class="office-city">Malaysia</span>
+        <div class="office-role">Regional Hub</div>
+      </div>
+      <div class="office-item">
+        <span class="office-flag">🇦🇪</span>
+        <span class="office-city">Dubai</span>
+        <div class="office-role">Trade &amp; Finance</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="metals">
+  <div class="metals-header fi">
+    <div>
+      <div class="sec-label">What We Trade</div>
+      <h2 class="sec-title">Critical Metals Portfolio</h2>
+    </div>
+    <p class="sec-body" style="max-width:360px;font-size:.88rem">From mine to market — we specialize in the metals that power the modern economy across energy transition, defense, and advanced manufacturing.</p>
+  </div>
+  <div class="metals-grid fi">
+    <div class="metal-card">
+      <div class="m-sym">REE · Group III</div>
+      <div class="m-name">Rare Earth<br>Elements</div>
+      <div class="m-desc">Neodymium, dysprosium, praseodymium and other critical REEs for permanent magnets, EV motors, and advanced electronics.</div>
+      <div class="m-tags"><span class="m-tag">NdFeB Magnets</span><span class="m-tag">EV / Wind</span><span class="m-tag">Defense</span></div>
+      <div class="m-bg">Re</div>
+    </div>
+    <div class="metal-card">
+      <div class="m-sym">Li · Group I</div>
+      <div class="m-name">Lithium &<br>Battery Metals</div>
+      <div class="m-desc">Lithium carbonate, lithium hydroxide, and battery precursor materials for energy storage and EV battery cell production.</div>
+      <div class="m-tags"><span class="m-tag">Li₂CO₃</span><span class="m-tag">LiOH·H₂O</span><span class="m-tag">Battery-Grade</span></div>
+      <div class="m-bg">Li</div>
+    </div>
+    <div class="metal-card">
+      <div class="m-sym">Co · Ni · Mn</div>
+      <div class="m-name">Cobalt, Nickel<br>&amp; Manganese</div>
+      <div class="m-desc">Battery cathode materials essential to NMC and NCA chemistries. Sourced with full chain-of-custody documentation.</div>
+      <div class="m-tags"><span class="m-tag">Cathode Grade</span><span class="m-tag">NMC / NCA</span><span class="m-tag">Certified</span></div>
+      <div class="m-bg">Co</div>
+    </div>
+  </div>
+  <div class="metals-grid-bottom fi">
+    <div class="metal-card">
+      <div class="m-sym">Cu · Zn · Pb</div>
+      <div class="m-name">Copper, Zinc<br>&amp; Lead</div>
+      <div class="m-desc">High-purity copper cathode, zinc concentrates, and refined lead for industrial, infrastructure, and electronics applications.</div>
+      <div class="m-tags"><span class="m-tag">LME Grade A</span><span class="m-tag">Industrial</span><span class="m-tag">Bulk</span></div>
+      <div class="m-bg">Cu</div>
+    </div>
+    <div class="metal-card">
+      <div class="m-sym">Sb · Critical Mineral</div>
+      <div class="m-name">Antimony</div>
+      <div class="m-desc">High-purity antimony trioxide and metal for flame retardants, semiconductor alloys, and defense applications. A strategic critical mineral with tightening global supply.</div>
+      <div class="m-tags"><span class="m-tag">Sb₂O₃</span><span class="m-tag">Defense</span><span class="m-tag">Semiconductor</span></div>
+      <div class="m-bg">Sb</div>
+    </div>
+    <div class="metal-card">
+      <div class="m-sym">W · Group VI</div>
+      <div class="m-name">Tungsten</div>
+      <div class="m-desc">Tungsten concentrates and ammonium paratungstate (APT) for cutting tools, aerospace alloys, and high-performance industrial applications.</div>
+      <div class="m-tags"><span class="m-tag">APT</span><span class="m-tag">Aerospace</span><span class="m-tag">Hard Metals</span></div>
+      <div class="m-bg">W</div>
+    </div>
+  </div>
+  <div class="supply-banner fi">
+    <svg class="supply-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    <div>
+      <div class="supply-title">Mine-Controlled Supply Advantage</div>
+      <div class="supply-body">Unlike traditional commodity traders, Eastern Mineral controls its own mining operations — ensuring consistent volume, verifiable provenance, and price stability for long-term supply agreements. Our buyers receive direct mine-to-market access with full traceability at every stage.</div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-bar">
+  <div class="mq-track rev">
+    <div class="mq-item">Cambodia · Mine Operations</div>
+    <div class="mq-item">Malaysia · Regional Hub</div>
+    <div class="mq-item">Dubai · Trade &amp; Finance</div>
+    <div class="mq-item">Chain-of-Custody Docs</div>
+    <div class="mq-item">OECD Due Diligence</div>
+    <div class="mq-item">LME Registered Brands</div>
+    <div class="mq-item">Cambodia · Mine Operations</div>
+    <div class="mq-item">Malaysia · Regional Hub</div>
+    <div class="mq-item">Dubai · Trade &amp; Finance</div>
+    <div class="mq-item">Chain-of-Custody Docs</div>
+    <div class="mq-item">OECD Due Diligence</div>
+    <div class="mq-item">LME Registered Brands</div>
+  </div>
+</div>
+
+<section id="process">
+  <div class="process-header fi">
+    <div>
+      <div class="sec-label">How We Trade</div>
+      <h2 class="sec-title">From Sourcing<br>to Settlement</h2>
+    </div>
+    <p class="sec-body" style="font-size:.88rem">Our trading process is built for institutional counterparties — structured, transparent, and designed to close efficiently with full documentation at every stage.</p>
+  </div>
+  <div class="process-layout">
+    <div class="process-timeline fi">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <div class="step-content"><div class="step-title">Inquiry &amp; Requirements</div><div class="step-body">Submit a trade inquiry specifying metal category, grade, volume, and delivery destination. Our team responds with an initial term sheet within 48 hours.</div></div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <div class="step-content"><div class="step-title">KYC &amp; Compliance Review</div><div class="step-body">Both parties complete onboarding documentation including AML/KYC verification, corporate registry, and beneficial ownership disclosure.</div></div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <div class="step-content"><div class="step-title">Contract &amp; Trade Financing</div><div class="step-body">Formal sale-purchase agreement executed. Payment terms structured via letter of credit (LC), documentary collection, or pre-agreed wire transfer.</div></div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <div class="step-content"><div class="step-title">Logistics &amp; Documentation</div><div class="step-body">Material shipped with full documentation: certificate of analysis (CoA), bill of lading, packing list, customs clearance support, and insurance certificates.</div></div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">05</div>
+        <div class="step-content"><div class="step-title">Settlement &amp; Post-Trade</div><div class="step-body">Final settlement upon delivery confirmation. Ongoing relationship management and market intelligence provided to active trading partners.</div></div>
+      </div>
+    </div>
+    <div class="markets-box fi">
+      <div class="markets-title">Active Trading Markets</div>
+      <div class="market-item">
+        <div style="display:flex;align-items:center"><span class="mflag">🇰🇷</span><div><div class="mname">South Korea</div><div class="mdetail">Battery, Steel &amp; Electronics</div></div></div>
+        <div class="mstatus"><div class="mdot"></div>Active</div>
+      </div>
+      <div class="market-item">
+        <div style="display:flex;align-items:center"><span class="mflag">🇯🇵</span><div><div class="mname">Japan</div><div class="mdetail">Manufacturing &amp; Technology</div></div></div>
+        <div class="mstatus"><div class="mdot"></div>Active</div>
+      </div>
+      <div class="market-item">
+        <div style="display:flex;align-items:center"><span class="mflag">🇹🇼</span><div><div class="mname">Taiwan</div><div class="mdetail">Semiconductor &amp; Electronics</div></div></div>
+        <div class="mstatus"><div class="mdot"></div>Active</div>
+      </div>
+      <div class="market-item">
+        <div style="display:flex;align-items:center"><span class="mflag">🇦🇪</span><div><div class="mname">Dubai / UAE</div><div class="mdetail">Trade Hub &amp; Finance</div></div></div>
+        <div class="mstatus"><div class="mdot"></div>Active</div>
+      </div>
+      <div class="market-item">
+        <div style="display:flex;align-items:center"><span class="mflag">🇸🇦</span><div><div class="mname">Saudi Arabia</div><div class="mdetail">Industrial &amp; Energy Sector</div></div></div>
+        <div class="mstatus"><div class="mdot"></div>Active</div>
+      </div>
+      <div class="market-item">
+        <div style="display:flex;align-items:center"><span class="mflag">🇩🇪</span><div><div class="mname">Germany</div><div class="mdetail">Automotive &amp; Industrial</div></div></div>
+        <div class="mstatus"><div class="mdot"></div>Active</div>
+      </div>
+      <div class="compliance-box">
+        <div class="markets-title" style="margin-bottom:12px">Compliance Standards</div>
+        <div class="comp-row"><span class="comp-check">✓</span>OECD Due Diligence Guidance</div>
+        <div class="comp-row"><span class="comp-check">✓</span>LME Approved Brands (where applicable)</div>
+        <div class="comp-row"><span class="comp-check">✓</span>AML / KYC Onboarding Protocol</div>
+        <div class="comp-row"><span class="comp-check">✓</span>Full Chain-of-Custody Documentation</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="contact">
+  <div class="contact-info fi">
+    <div class="sec-label">Get In Touch</div>
+    <h2 class="sec-title">Contact<br>Us</h2>
+    <p class="sec-body">Whether you're a procurement manager sourcing critical materials, an institutional buyer exploring long-term supply agreements, or an industry partner seeking to establish a trading relationship — we respond within 48 hours.</p>
+    <div class="contact-detail">
+      <div class="citem"><div class="clbl">General Inquiries</div><div class="cval">info@easternmineral.com</div></div>
+      <div class="citem"><div class="clbl">Trade Desk</div><div class="cval">trading@easternmineral.com</div></div>
+      <div class="citem"><div class="clbl">Cambodia Office</div><div class="cval">Mining &amp; Operations</div></div>
+      <div class="citem"><div class="clbl">Malaysia Office</div><div class="cval">Regional Hub</div></div>
+      <div class="citem"><div class="clbl">Dubai Office</div><div class="cval">Trade &amp; Finance</div></div>
+    </div>
+  </div>
+  <div class="contact-form fi">
+    <div class="form-title">Trade Inquiry Form</div>
+    <div class="form-row">
+      <div class="form-group"><label class="form-lbl">First Name</label><input type="text" class="form-input" placeholder="John"></div>
+      <div class="form-group"><label class="form-lbl">Last Name</label><input type="text" class="form-input" placeholder="Smith"></div>
+    </div>
+    <div class="form-group"><label class="form-lbl">Company</label><input type="text" class="form-input" placeholder="Organization Name"></div>
+    <div class="form-group"><label class="form-lbl">Email Address</label><input type="email" class="form-input" placeholder="name@company.com"></div>
+    <div class="form-group">
+      <label class="form-lbl">Inquiry Type</label>
+      <select class="form-select">
+        <option value="" disabled selected>Select inquiry type</option>
+        <option>Buy – Procurement Inquiry</option>
+        <option>Sell – Supply Inquiry</option>
+        <option>Partnership / Distribution</option>
+        <option>Market Intelligence</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-lbl">Metal Category</label>
+      <select class="form-select">
+        <option value="" disabled selected>Select metal category</option>
+        <option>Rare Earth Elements (REEs)</option>
+        <option>Lithium / Battery Metals</option>
+        <option>Cobalt, Nickel &amp; Manganese</option>
+        <option>Copper, Zinc &amp; Lead</option>
+        <option>Antimony</option>
+        <option>Tungsten</option>
+        <option>Multiple / Other</option>
+      </select>
+    </div>
+    <div class="form-group"><label class="form-lbl">Message</label><textarea class="form-textarea" placeholder="Describe your requirements — metal specification, volume, delivery location, and preferred timeline."></textarea></div>
+    <div class="form-submit">
+      <div class="form-note">Responses within 48 business hours from our trade desk.</div>
+      <button class="btn-submit">Submit Inquiry <span class="arr">→</span></button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#hero" class="nav-logo">
+        <div class="logo-mark">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="16,1.5 30,8.5 30,23.5 16,30.5 2,23.5 2,8.5" fill="none" stroke="#4aad65" stroke-width="1.1"/>
+            <polygon points="16,7 24.5,11.5 24.5,20.5 16,25 7.5,20.5 7.5,11.5" fill="none" stroke="rgba(196,208,200,.2)" stroke-width=".7"/>
+            <circle cx="16" cy="16" r="2.5" fill="#4aad65"/>
+          </svg>
+        </div>
+        <div><div class="logo-text">Eastern Mineral</div><span class="logo-sub">Critical Metals Trading</span></div>
+      </a>
+      <p>Mine-to-market critical metals trading. Operating across Asia-Pacific, the Middle East, and Europe from offices in Cambodia, Malaysia, and Dubai.</p>
+    </div>
+    <div>
+      <div class="fcol-title">Navigation</div>
+      <ul class="footer-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#metals">Our Metals</a></li>
+        <li><a href="#process">Trading Process</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="fcol-title">Metals</div>
+      <ul class="footer-links">
+        <li><a href="#metals">Rare Earth Elements</a></li>
+        <li><a href="#metals">Lithium &amp; Battery</a></li>
+        <li><a href="#metals">Cobalt, Nickel &amp; Mn</a></li>
+        <li><a href="#metals">Copper, Zinc &amp; Lead</a></li>
+        <li><a href="#metals">Antimony</a></li>
+        <li><a href="#metals">Tungsten</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="fcol-title">Offices</div>
+      <ul class="footer-links">
+        <li><a href="#about">🇰🇭 Cambodia</a></li>
+        <li><a href="#about">🇲🇾 Malaysia</a></li>
+        <li><a href="#about">🇦🇪 Dubai</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Eastern Mineral. All rights reserved.</div>
+    <div class="footer-legal">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Trade</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const canvas = document.getElementById('tradeCanvas');
+const ctx = canvas.getContext('2d');
+
+// Cambodia is origin (x=.58, y=.55 on the canvas = SE Asia)
+// Destinations fan outward
+const NODES = [
+  {label:'Cambodia',sub:'Origin',x:.52,y:.58,origin:true},
+  {label:'S. Korea',sub:'Destination',x:.80,y:.22},
+  {label:'Japan',sub:'Destination',x:.88,y:.38},
+  {label:'Taiwan',sub:'Destination',x:.82,y:.52},
+  {label:'Dubai',sub:'Destination',x:.22,y:.40},
+  {label:'Saudi Arabia',sub:'Destination',x:.18,y:.55},
+  {label:'Germany',sub:'Destination',x:.10,y:.20},
+];
+// All edges radiate FROM Cambodia (index 0)
+const EDGES=[{f:0,t:1},{f:0,t:2},{f:0,t:3},{f:0,t:4},{f:0,t:5},{f:0,t:6}];
+
+const parts=[];
+function spawnP(st){
+  const e=EDGES[Math.floor(Math.random()*EDGES.length)];
+  parts.push({e,t:st||0,sp:.0016+Math.random()*.0012,sz:1.4+Math.random()*1.1,al:.6+Math.random()*.4});
+}
+function resizeC(){
+  const r=canvas.parentElement.getBoundingClientRect();
+  canvas.width=r.width;canvas.height=r.height;
+}
+function gp(n){return{x:n.x*canvas.width,y:n.y*canvas.height}}
+function gc(a,b){
+  const mx=(a.x+b.x)/2,my=(a.y+b.y)/2,dx=b.x-a.x,dy=b.y-a.y,len=Math.sqrt(dx*dx+dy*dy);
+  return{x:mx-(dy/len)*len*.2,y:my+(dx/len)*len*.2};
+}
+function bz(a,cp,b,t){
+  return{x:(1-t)*(1-t)*a.x+2*(1-t)*t*cp.x+t*t*b.x,
+         y:(1-t)*(1-t)*a.y+2*(1-t)*t*cp.y+t*t*b.y};
+}
+let time=0;
+function draw(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  time+=.012;
+  const np=NODES.map(n=>gp(n));
+  EDGES.forEach(e=>{
+    const a=np[e.f],b=np[e.t],cp=gc(a,b);
+    ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.quadraticCurveTo(cp.x,cp.y,b.x,b.y);
+    ctx.strokeStyle='rgba(74,173,101,.1)';ctx.lineWidth=1;ctx.setLineDash([]);ctx.stroke();
+  });
+  parts.forEach(p=>{
+    p.t+=p.sp;
+    if(p.t>1){p.t=0;p.e=EDGES[Math.floor(Math.random()*EDGES.length)];p.sp=.0016+Math.random()*.0012;}
+    const a=np[p.e.f],b=np[p.e.t],cp=gc(a,b),pos=bz(a,cp,b,p.t);
+    const g=ctx.createRadialGradient(pos.x,pos.y,0,pos.x,pos.y,p.sz*3);
+    g.addColorStop(0,`rgba(74,173,101,${p.al})`);g.addColorStop(1,'rgba(74,173,101,0)');
+    ctx.beginPath();ctx.arc(pos.x,pos.y,p.sz*3,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
+    ctx.beginPath();ctx.arc(pos.x,pos.y,p.sz*.8,0,Math.PI*2);ctx.fillStyle=`rgba(200,230,210,${p.al})`;ctx.fill();
+  });
+  NODES.forEach((node,i)=>{
+    const pos=np[i],pulse=Math.sin(time+i*1.4)*.5+.5;
+    const isOrigin=node.origin;
+    const outerR=isOrigin?22+pulse*10:16+pulse*6;
+    const midR=isOrigin?13:9;
+    const coreR=isOrigin?7:4.5;
+    ctx.beginPath();ctx.arc(pos.x,pos.y,outerR,0,Math.PI*2);
+    ctx.strokeStyle=`rgba(74,173,101,${isOrigin?.12+pulse*.14:.06+pulse*.08})`;ctx.lineWidth=1;ctx.stroke();
+    ctx.beginPath();ctx.arc(pos.x,pos.y,midR,0,Math.PI*2);
+    ctx.strokeStyle=`rgba(74,173,101,${isOrigin?.35+pulse*.2:.2+pulse*.12})`;ctx.lineWidth=1;ctx.stroke();
+    const gr=ctx.createRadialGradient(pos.x,pos.y,0,pos.x,pos.y,coreR);
+    gr.addColorStop(0,'rgba(200,230,210,.95)');gr.addColorStop(.5,'rgba(74,173,101,.9)');gr.addColorStop(1,'rgba(42,96,56,.5)');
+    ctx.beginPath();ctx.arc(pos.x,pos.y,coreR,0,Math.PI*2);ctx.fillStyle=gr;ctx.fill();
+    ctx.font=`${isOrigin?'600':'500'} ${isOrigin?10:8}px "IBM Plex Mono",monospace`;
+    ctx.fillStyle=isOrigin?'rgba(230,245,235,.95)':'rgba(220,235,225,.85)';
+    ctx.textAlign='center';
+    ctx.fillText(node.label.toUpperCase(),pos.x,pos.y-(isOrigin?26:20));
+    ctx.font='8px "IBM Plex Mono",monospace';
+    ctx.fillStyle='rgba(120,160,130,.6)';
+    ctx.fillText(node.sub,pos.x,pos.y-(isOrigin?15:10));
+  });
+  requestAnimationFrame(draw);
+}
+function initGraph(){resizeC();for(let i=0;i<20;i++)spawnP(i/20);draw();}
+window.addEventListener('resize',resizeC);
+const go=new IntersectionObserver(e=>{if(e[0].isIntersecting){initGraph();go.disconnect();}},{threshold:.1});
+go.observe(canvas);
+
+const fo=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('vis'),80);fo.unobserve(e.target);}});
+},{threshold:.07});
+document.querySelectorAll('.fi').forEach(el=>fo.observe(el));
+
+window.addEventListener('scroll',()=>{
+  document.getElementById('main-nav').style.background=window.scrollY>60?'rgba(6,14,8,.99)':'rgba(10,26,16,.95)';
+});
+
+const hbg=document.getElementById('hamburger');
+const drw=document.getElementById('nav-drawer');
+hbg.addEventListener('click',e=>{
+  e.stopPropagation();
+  const open=drw.classList.toggle('open');
+  hbg.classList.toggle('open',open);
+  document.body.style.overflow=open?'hidden':'';
+});
+document.querySelectorAll('.drawer-link').forEach(l=>{
+  l.addEventListener('click',()=>{
+    drw.classList.remove('open');
+    hbg.classList.remove('open');
+    document.body.style.overflow='';
+  });
+});
+document.addEventListener('click',e=>{
+  if(!drw.contains(e.target)&&!hbg.contains(e.target)){
+    drw.classList.remove('open');hbg.classList.remove('open');document.body.style.overflow='';
+  }
+});
+</script>
+</body>
+</html>
